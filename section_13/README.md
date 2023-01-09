@@ -11,7 +11,7 @@ Below are the key steps that we will be following in this section13 repository,
 - Like we discussed in the course, create the below 5 yaml files to get started with deployment of microservices into kubernetes cluster
 ### \accounts\kubernetes\1_configmaps.yml
 ```yaml
-  apiVersion: v1
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: eazybank-configmap
