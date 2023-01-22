@@ -15,21 +15,16 @@ than 2022.0.0
 - From Spring Cloud 2022.0.0 & Spring Boot 3, the Sleuth project has been removed & the core of this project has moved to Micrometer Tracing. For more details, please refer GitHub & micrometer website (https://micrometer.io/docs/tracing). In case if you are using micrometer, please add the below maven dependencies inside pom.xml of all the projects
 ```xml
 <dependency>
-   <groupId>io.micrometer</groupId>
-   <artifactId>micrometer-registry-prometheus</artifactId>
+    <groupId>io.github.openfeign</groupId>
+    <artifactId>feign-micrometer</artifactId>
 </dependency>
 <dependency>
-   <groupId>io.micrometer</groupId>
-   <artifactId>micrometer-tracing</artifactId>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
 </dependency>
 <dependency>
-   <groupId>io.micrometer</groupId>
-   <artifactId>micrometer-tracing-bridge-brave</artifactId>
-</dependency>
-<dependency>
-   <groupId>io.micrometer</groupId>
-   <artifactId>context-propagation</artifactId>
-   <version>1.0.0</version>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-tracing-bridge-otel</artifactId>
 </dependency>
 ```
 - Open the **AccountsController.java, LoansController.java , CardsController.java** and add the logger statements like we discussed in the course. This logger statements will help us to understand and validate how **Spring Cloud Sleuth/Micrometer** is going to add **App name, Trace ID, Span ID** information to the loggers inside the microservices. After making the changes your **AccountsController.java, LoansController.java , CardsController.java** should look like shown below,
@@ -310,8 +305,8 @@ public class CardsController {
 - Otherwise, if you are using micrometer, then please add below required dependency of **Zipkin**
   ```xml
    <dependency>
-	<groupId>io.zipkin.reporter2</groupId>
-	<artifactId>zipkin-reporter-brave</artifactId>
+    <groupId>io.opentelemetry</groupId>
+    <artifactId>opentelemetry-exporter-zipkin</artifactId>
    </dependency>
   ```
 - Open the **application.properties** of all the microservices **accounts, loans, cards, configserver, eurekaserver, gatewayserver** and make sure to add the below properties/configurations in all of them based on if you are using Sleuth or Micrometer.
