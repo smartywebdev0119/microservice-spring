@@ -10,10 +10,6 @@ prometheus, grafana.**
   ```xml
   <dependency>
     <groupId>io.micrometer</groupId>
-    <artifactId>micrometer-core</artifactId>
-  </dependency>
-  <dependency>
-    <groupId>io.micrometer</groupId>
     <artifactId>micrometer-registry-prometheus</artifactId>
   </dependency>
   <dependency>
